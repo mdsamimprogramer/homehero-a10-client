@@ -1,0 +1,50 @@
+import { useLoaderData } from "react-router";
+import { useState } from "react";
+import { ServiceCard } from "../../components/ServiceCard";
+
+const AllServices = () => {
+  const data = useLoaderData(); // Loader থেকে services আনা হচ্ছে
+  const [services, setServices] = useState(data);
+  const [loading, setLoading] = useState(false);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const search_text = e.target.search.value;
+    setLoading(true);
+
+    fetch(`http://localhost:3000/search?search=${search_text}`) // আপনার local API
+      .then(res => res.json())
+      .then(data => {
+        setServices(data);
+        setLoading(false);
+      });
+  };
+
+  return (
+    <div>
+      <div className="text-2xl text-center font-bold">All Services</div>
+      <p className="text-center">Explore available services.</p>
+
+      <form onSubmit={handleSearch} className="mt-5 mb-10 flex gap-2 justify-center">
+        <label className="input rounded-full flex items-center">
+          <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input name="search" type="search" placeholder="Search" className="ml-2 outline-none bg-transparent" />
+        </label>
+        <button className="btn btn-secondary rounded-full">{loading ? "Searching..." : "Search"}</button>
+      </form>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {services && services.map((service) => (
+          <ServiceCard key={service._id} service={service} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default AllServices;
