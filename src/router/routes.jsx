@@ -5,18 +5,19 @@ import Profile from "../Pages/Profile/Profile";
 import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Registration";
 import PrivateRoute from "./PrivateRoute";
-import MyDownloads from "../Pages/MyBookings/MyBookings";
 import AddService from "../Pages/AddService/AddService";
 import AllServices from "../Pages/AllServices/AllServices";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import MyServices from "../Pages/MyServices/MyServices";
 import UpdateService from "../Pages/UpdateService/UpdateService";
 import MyBookings from "../Pages/MyBookings/MyBookings";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />, 
     children: [
       {
         path: "/",
