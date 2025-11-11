@@ -61,7 +61,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      <div className="mb-[500px]"></div>
+      <div className="mb-[550px] md:mb-[480px]"></div>
     </>
   );
 };
