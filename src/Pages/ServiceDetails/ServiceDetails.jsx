@@ -12,6 +12,8 @@ const ServiceDetails = () => {
   const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const [refetch, setRefetch] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [reviewText, setReviewText] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:3000/services/${id}`, {
@@ -94,6 +96,41 @@ const ServiceDetails = () => {
       }
     });
   };
+  const handleReviewSubmit = () => {
+    if (!user?.email) return toast.error("Please login first!");
+
+    const reviewData = {
+      user: user.email,
+      rating,
+      review: reviewText,
+      date: new Date(),
+    };
+
+    // Service DB তে রিভিউ যোগ করা
+    fetch(`http://localhost:3000/services/${service._id}/reviews`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(reviewData),
+    })
+      .then(res => res.json())
+      .then(() => {
+        toast.success("Review submitted!");
+        setRefetch(!refetch); // পুনরায় সার্ভিস ডাটা fetch করবে
+        setRating(0);
+        setReviewText("");
+      })
+      .catch(err => {
+        console.log(err);
+        toast.error("Review submission failed!");
+      });
+
+    // Optional: যদি কার্টে আপডেট করতে চান
+    fetch(`http://localhost:3000/cart/update-rating/${service._id}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ rating }),
+    });
+  };
 
 
   if (loading) return (<div className="text-center my-42"> <FourSquare color="#32cd32" size="100%" /> </div>);
@@ -116,6 +153,7 @@ const ServiceDetails = () => {
             <div className="badge badge-lg text-pink-600 bg-gray-100 font-medium">
               Price ${service.price}
             </div>
+
             <div className="flex gap-3">
               <div className="badge badge-lg badge-outline text-pink-600 border-pink-600 font-medium">
                 {service.category}
@@ -141,6 +179,35 @@ const ServiceDetails = () => {
           </div>
         </div>
       </div>
+
+      <div className="mt-6 border-t pt-4">
+        <div className="flex gap-2 mb-2">
+          <span>Rating:</span>
+          {[1, 2, 3, 4, 5].map(star => (
+            <span
+              key={star}
+              className={`cursor-pointer text-xl ${star <= rating ? "text-yellow-400" : "text-gray-300"}`}
+              onClick={() => setRating(star)}
+            >★</span>
+          ))}
+        </div>
+
+        <textarea
+          value={reviewText}
+          onChange={(e) => setReviewText(e.target.value)}
+          placeholder="Write your opinion..."
+          className="textarea textarea-bordered w-full mb-2"
+        />
+
+        <button
+          onClick={handleReviewSubmit}
+          className="btn btn-sm bg-green-500 hover:bg-green-600 text-white"
+        >
+          Submit Review
+        </button>
+      </div>
+
+
     </div>
   );
 };
