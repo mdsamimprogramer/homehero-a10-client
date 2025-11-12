@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router";
 import { IoLogoModelS } from "react-icons/io";
 import { GoHomeFill } from "react-icons/go";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
-import { FaGear, FaUser } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa6";
 import { LuRotate3D } from "react-icons/lu";
 import { ImBoxAdd } from "react-icons/im";
 import { use, useEffect, useState } from "react";
@@ -10,7 +10,6 @@ import { AuthContext } from "../context/AuthContext";
 
 const NavBar = () => {
   const { user, signOutUser } = use(AuthContext);
-
   const [theme, setTheme] = useState(localStorage.getItem('theme') || "light")
 
   useEffect(() => {
@@ -19,18 +18,17 @@ const NavBar = () => {
     localStorage.setItem("theme", theme)
   }, [theme])
 
-
   const handleTheme = (checked) => {
     setTheme(checked ? "dark" : "light")
   }
-  
+
   return (
-    <div className="navbar py-0 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl">
+    <div className="navbar py-1 min-h-0 bg-gray-50 z-1 shadow-sm rounded glass-card max-w-7xl">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
-              <path strokeLinecap="round" strokeLinejoin="round"strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16"/>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
             </svg>
           </div>
           <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow" >
@@ -55,21 +53,20 @@ const NavBar = () => {
             <NavLink to={"/all-services"}> <IoLogoModelS /> All Services </NavLink>
           </li>
           <li>
-            <NavLink to={"/add-service"}> <ImBoxAdd /> Add service
-            </NavLink>
+            <NavLink to={"/add-service"}> <ImBoxAdd /> Add service </NavLink>
           </li>
-          
+
         </ul>
       </div>
       <div className="navbar-end gap-3">
         {user ? (
           <div className="dropdown dropdown-end z-50">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar" >
-              <div className="w-9 border-2 border-red-200 rounded-full">
+              <div className="w-9 border-2 border-pink-500 shadow rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
                   referrerPolicy="no-referrer"
-                 src={user.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
+                  src={user.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
               </div>
             </div>
             <ul tabIndex="-1" className="menu  menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
@@ -78,20 +75,16 @@ const NavBar = () => {
                 <li className="text-xs text-fuchsia-500">{user.email}</li>
               </div>
               <li className="mt-3">
-                <Link to={"/profile"}>
-                  <FaUser /> Profile
-                </Link>
+                <Link to={"/profile"}> <FaUser /> Profile </Link>
               </li>
-              <li>
-                <Link to={"/my-services"}> My Services </Link>
-              </li>
-              <li ><Link to={"/my-bookings"}> My Bookings</Link> </li>
+              <li> <Link to={"/my-services"}> My Services </Link> </li>
+              <li> <Link to={"/my-bookings"}> My Bookings</Link> </li>
 
               <input
                 onChange={(e) => handleTheme(e.target.checked)}
                 type="checkbox"
                 defaultChecked={localStorage.getItem('theme') === "dark"}
-                className="toggle ml-1.5 my-1"/>
+                className="toggle ml-1.5 my-1" />
               <li>
                 <button onClick={signOutUser} className="btn btn-xs text-left bg-linear-to-r from-pink-500 to-red-500 text-white" >
                   <IoLogOut /> Logout
