@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Banner from "../../components/Banner";
 import { ServiceCard } from "../../components/ServiceCard";
+import WhyChooseUs from "../../components/WhyChooseUs";
 
 const Home = () => {
     const [services, setServices] = useState([]);
@@ -58,6 +59,7 @@ const Home = () => {
     return (
         <div>
             <Banner />
+            <WhyChooseUs />
 
             <div className="flex flex-col md:flex-row justify-center items-center gap-3 mt-5">
                 <div className="space-x-3">
