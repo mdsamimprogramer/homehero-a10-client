@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 const videos = [
   "https://cdn.dribbble.com/userupload/44360845/file/4988e26dadf995df34b5bfde3d04d45d.mp4",
@@ -37,6 +38,17 @@ const Banner = () => {
                   <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
                 </div>
               ))}
+            </div>
+
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-6 md:px-12">
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg"> Discover Trusted Home-hero Services </h1>
+              <p className="text-sm mb-6 max-w-2xl text-gray-200">
+                From electricians to plumbers — find reliable professionals near you,
+                rated by real customers. Simplify your home service needs today!
+              </p>
+              <Link to="/all-services" className="bg-lime-500 hover:green-600 text-white font-sm px-6 py-1.5 rounded-full shadow-lg transition transform hover:scale-105" >
+                Explore Now
+              </Link>
             </div>
 
             {/* Navigation Buttons */}
