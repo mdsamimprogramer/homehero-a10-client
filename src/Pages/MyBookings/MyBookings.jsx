@@ -105,7 +105,7 @@ const MyBookings = () => {
     );
 
   if (bookings.length === 0)
-    return <div className="text-center mt-10">No bookings yet.</div>;
+    return <div className="text-center my-46">No bookings yet.</div>;
 
   return (
     <div className="max-w-5xl mx-auto p-4">
@@ -132,13 +132,11 @@ const MyBookings = () => {
                 <td className="px-4 py-2 border">
                   {new Date(booking.bookingDate).toLocaleDateString()}
                 </td>
-                <td className="px-4 py-2 border space-x-2">
-                  <button onClick={() => handleCancel(booking._id)} className="btn btn-sm bg-red-500 text-white rounded-full hover:bg-red-600">
-                    Cancel
-                  </button>
-                  <button onClick={() => setSelectedBooking(booking)} className="btn btn-sm bg-green-500 text-white rounded-full hover:bg-green-600" >
-                    Review
-                  </button>
+                <td className="border">
+                  <div className="px-2 flex space-x-2 md:space-x-4 lg:space-x-6 items-center justify-center py-1.5">
+                    <button onClick={() => setSelectedBooking(booking)} className="btn btn-sm bg-green-500 text-white rounded-full hover:bg-green-600" >Review</button>
+                    <button onClick={() => handleCancel(booking._id)} className="btn btn-sm bg-red-500 text-white rounded-full hover:bg-red-600"> Cancel</button>
+                  </div>
                 </td>
               </tr>
             ))}
