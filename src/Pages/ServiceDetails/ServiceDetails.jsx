@@ -12,7 +12,14 @@ const ServiceDetails = () => {
   const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const [refetch, setRefetch] = useState(false);
-  
+
+  // Average rating বের করা
+  const avgRating = service.reviews?.length
+    ? Math.min(service.reviews.reduce((a, r) => a + r.rating, 0) / service.reviews.length, 5)
+    : 0;
+
+  const stars = "★★★★★☆☆☆☆☆".slice(5 - Math.floor(avgRating), 10 - Math.floor(avgRating));
+
   useEffect(() => {
     fetch(`http://localhost:3000/services/${id}`, {
       headers: { authorization: `Bearer ${user?.accessToken}` },
@@ -95,7 +102,6 @@ const ServiceDetails = () => {
     });
   };
 
-
   if (loading) return (<div className="text-center my-42"> <FourSquare color="#32cd32" size="100%" /> </div>);
 
   return (
@@ -113,11 +119,15 @@ const ServiceDetails = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
               {service.name}
             </h1>
-            <div className="badge badge-lg text-pink-600 bg-gray-100 font-medium">
-              Price ${service.price}
+            <div className="flex items-center gap-5 font-medium">
+              <div className="badge badge-lg text-pink-600 bg-gray-100">Price ${service.price}</div>
+              <div className="flex items-center gap-2">
+                <span className="text-yellow-500 text-lg">{stars}</span>
+                <span className="text-gray-600 text-sm">({avgRating.toFixed(1)})</span>
+              </div>
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex gap-5">
               <div className="badge badge-lg badge-outline text-pink-600 border-pink-600 font-medium">
                 {service.category}
               </div>
@@ -125,10 +135,11 @@ const ServiceDetails = () => {
                 Booked: {service.bookings || 0}
               </div>
             </div>
+            <div className="text-sm text-gray-600">{service.created_by}</div>
             <p className="text-gray-600 leading-relaxed text-base md:text-lg">
               {service.description}
             </p>
-            <div className="flex gap-3 mt-6">
+            <div className="flex gap-3 mt-4">
               <Link to={`/update-service/${service._id}`} className="btn btn-primary rounded-full bg-linear-to-r from-pink-500 to-red-600 text-white border-0 hover:from-pink-600 hover:to-red-700" >
                 Edit Service
               </Link>
@@ -142,7 +153,6 @@ const ServiceDetails = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
