@@ -34,7 +34,7 @@ const MyBookings = () => {
       });
   }, [user, refetch]);
 
-  // ✅ Cancel Booking
+  //  Cancel Booking
   const handleCancel = (bookingId) => {
     Swal.fire({
       title: "Are you sure?",
@@ -59,7 +59,7 @@ const MyBookings = () => {
     });
   };
 
-  // ✅ Submit Review
+  //  Submit Review
   const handleSubmitReview = async () => {
     if (!rating || !comment) {
       toast.error("Please give a rating and comment!");
@@ -133,16 +133,10 @@ const MyBookings = () => {
                   {new Date(booking.bookingDate).toLocaleDateString()}
                 </td>
                 <td className="px-4 py-2 border space-x-2">
-                  <button
-                    onClick={() => handleCancel(booking._id)}
-                    className="btn btn-sm bg-red-500 text-white rounded-full hover:bg-red-600"
-                  >
+                  <button onClick={() => handleCancel(booking._id)} className="btn btn-sm bg-red-500 text-white rounded-full hover:bg-red-600">
                     Cancel
                   </button>
-                  <button
-                    onClick={() => setSelectedBooking(booking)}
-                    className="btn btn-sm bg-green-500 text-white rounded-full hover:bg-green-600"
-                  >
+                  <button onClick={() => setSelectedBooking(booking)} className="btn btn-sm bg-green-500 text-white rounded-full hover:bg-green-600" >
                     Review
                   </button>
                 </td>
@@ -154,44 +148,19 @@ const MyBookings = () => {
 
       {/* ✅ Review Modal */}
       {selectedBooking && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div className="fixed inset-0 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-xl shadow-lg w-96">
-            <h3 className="text-xl font-bold mb-3 text-center">
-              Review for {selectedBooking.service?.name}
-            </h3>
+            <h3 className="text-xl font-bold mb-3 text-center"> Review for {selectedBooking.service?.name} </h3>
 
             <label className="block font-semibold mb-1">Rating (1–5):</label>
-            <input
-              type="number"
-              min="1"
-              max="5"
-              value={rating}
-              onChange={(e) => setRating(e.target.value)}
-              className="w-full border p-2 rounded mb-3"
-            />
+            <input type="number" min="1" max="5" value={rating} onChange={(e) => setRating(e.target.value)} className="w-full border p-2 rounded mb-3" />
 
             <label className="block font-semibold mb-1">Comment:</label>
-            <textarea
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              className="w-full border p-2 rounded mb-4"
-              rows="3"
-              placeholder="Write your feedback..."
-            />
+            <textarea value={comment} onChange={(e) => setComment(e.target.value)} className="w-full border p-2 rounded mb-4" rows="3" placeholder="Write your feedback..." />
 
             <div className="flex justify-between">
-              <button
-                onClick={handleSubmitReview}
-                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full"
-              >
-                Submit
-              </button>
-              <button
-                onClick={() => setSelectedBooking(null)}
-                className="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-full"
-              >
-                Close
-              </button>
+              <button onClick={handleSubmitReview} className="bg-green-600 hover:bg-green-700 transition text-white px-4 py-1.5 rounded-full"> Submit </button>
+              <button onClick={() => setSelectedBooking(null)} className=" bg-gray-400 hover:bg-red-600 transition text-white px-4 py-1.5 rounded-full" >Close </button>
             </div>
           </div>
         </div>
