@@ -6,14 +6,14 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-r from-emerald-400 to-fuchsia-600 py-8 px-4 rounded-xl mt-20">
+    <footer className="bg-gradient-to-r from-gray-600 to-gray-400 py-8 px-4 rounded-xl mt-20">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
 
         {/* Logo & Navigation */}
         <div>
           <div className="flex items-center space-x-2 text-white">
             <HousePlus  size={25}/>
-            <span className="text-xl font-bold text-gray-800 dark:text-gray-200">HomeHero</span>
+            <span className="text-xl font-bold text-gray-800 dark:text-gray-200">Home <span className="text-pink-500">Hero</span></span>
           </div>
           <ul className="space-y-2 mt-4">
             <li><Link to="/all-services" className="text-gray-600 dark:text-gray-200 hover:text-blue-600">All Services</Link></li>

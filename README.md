@@ -48,21 +48,7 @@ The platform ensures transparency, trust, and convenience for both users and ser
 
 ###  Clone the Repositories
 ```bash
-git clone https://github.com/mdsamimprogramer/homehero-a10-client
-git clone https://github.com/mdsamimprogramer/homehero-a10-server
 
-
-
-
-# {
-#     "name": "House Cleaning",
-#     "category": "Cleaning",
-#     "price": 600,
-#     "description": "Full home cleaning including kitchen, bathroom, and living area.",
-#     "thumbnail": "https://d28ht6kztpdvka.cloudfront.net/media/productimages/87/Space-Suit-3D-Model-Textured-Download-.webp",
-#     "providerName": "Sadia Akter",
-#     "created_by": "sadia@example.com",
-#     "created_at": "2025-11-10T14:00:00Z",
-#     "updated_at": "2025-11-10T14:00:00Z",
-#     "reviews": []
-#   },
+Client Repository : https://github.com/mdsamimprogramer/homehero-a10-client
+Server Repository : https://github.com/mdsamimprogramer/homehero-a10-server
+Live Site : https://homehero-ass10.netlify.app/

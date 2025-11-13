@@ -33,12 +33,8 @@ const NavBar = () => {
             </svg>
           </div>
           <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow" >
-            <li>
-              <NavLink to={"/"}> <GoHomeFill /> Home</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/all-services"}> <IoLogoModelS /> All Services</NavLink>
-            </li>
+            <li> <NavLink to={"/"}> <GoHomeFill /> Home</NavLink> </li>
+            <li> <NavLink to={"/all-services"}> <IoLogoModelS /> All Services</NavLink> </li>
           </ul>
         </div>
         <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
@@ -47,16 +43,9 @@ const NavBar = () => {
       </div>
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1 gap-10">
-          <li>
-            <NavLink to={"/"}> <GoHomeFill />Home </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/all-services"}> <IoLogoModelS /> All Services </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/add-service"}> <ImBoxAdd /> Add service </NavLink>
-          </li>
-
+          <li> <NavLink to={"/"}> <GoHomeFill />Home </NavLink> </li>
+          <li> <NavLink to={"/all-services"}> <IoLogoModelS /> All Services </NavLink> </li>
+          <li> <NavLink to={"/add-service"}> <ImBoxAdd /> Add service </NavLink></li>
         </ul>
       </div>
       <div className="navbar-end gap-3">

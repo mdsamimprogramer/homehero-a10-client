@@ -1,9 +1,11 @@
 import { use } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const AddService = () => {
   const { user } = use(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,6 +32,7 @@ const AddService = () => {
       .then((res) => res.json())
       .then((data) => {
         toast.success("Service added successfully!");
+        navigate(location.state || "/all-services");
         console.log(data);
         e.target.reset();
       })
