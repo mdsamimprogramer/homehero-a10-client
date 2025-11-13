@@ -7,6 +7,7 @@ import { LuRotate3D } from "react-icons/lu";
 import { ImBoxAdd } from "react-icons/im";
 import { use, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { HousePlus } from "lucide-react";
 
 const NavBar = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -41,7 +42,7 @@ const NavBar = () => {
           </ul>
         </div>
         <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
-          <LuRotate3D /> Home <span className="text-pink-500">Hero</span>
+          <HousePlus size={25} /> Home <span className="text-pink-500">Hero</span>
         </Link>
       </div>
       <div className="navbar-center hidden md:flex">

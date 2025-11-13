@@ -1,18 +1,18 @@
 import { Link } from 'react-router';
-import { Facebook, Twitter, Instagram, Mail } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Mail, X, HousePlus } from 'lucide-react';
 import { LuRotate3D } from 'react-icons/lu';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-r from-pink-500 to-red-600 py-8 px-4 rounded-xl mt-20">
+    <footer className="bg-gradient-to-r from-emerald-400 to-fuchsia-600 py-8 px-4 rounded-xl mt-20">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
 
         {/* Logo & Navigation */}
         <div>
           <div className="flex items-center space-x-2 text-white">
-            <LuRotate3D size={25} />
+            <HousePlus  size={25}/>
             <span className="text-xl font-bold text-gray-800 dark:text-gray-200">HomeHero</span>
           </div>
           <ul className="space-y-2 mt-4">
@@ -53,7 +53,7 @@ const Footer = () => {
               <Facebook size={24} />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-200 hover:text-blue-400">
-              <Twitter size={24} />
+              <X size={24} />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-200 hover:text-pink-600">
               <Instagram size={24} />
@@ -63,7 +63,7 @@ const Footer = () => {
             <a
               href="mailto:support@homehero.com"
               className="flex items-center text-gray-600 dark:text-gray-200 hover:text-blue-600">
-              <Mail size={18} className="mr-2" /> support@homehero.com
+              <Mail size={18} className="mr-2" /> mdsamimhossen827@gmail.com
             </a>
           </div>
         </div>
