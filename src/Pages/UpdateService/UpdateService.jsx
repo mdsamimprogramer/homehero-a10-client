@@ -17,7 +17,7 @@ const UpdateService = () => {
       price: parseFloat(e.target.price.value),
     };
 
-    fetch(`http://localhost:3000/services/${service._id}`, {
+    fetch(`https://home-hero-server-sigma.vercel.app/services/${service._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const UpdateService = () => {
           {/* Price Field */}
           <div>
             <label className="label font-medium">Price (BDT)</label>
-            <input type="number" name="price" defaultValue={service.price || 0} min="0" required className="input w-full rounded-full focus:border-0 focus:outline-gray-200" placeholder="Enter price in BDT"/>
+            <input type="number" name="price" defaultValue={service.price || 0} min="0" required className="input w-full rounded-full focus:border-0 focus:outline-gray-200" placeholder="Enter price in BDT" />
           </div>
 
           {/* Description*/}
@@ -78,7 +78,7 @@ const UpdateService = () => {
           {/* Thumbnail URL */}
           <div>
             <label className="label font-medium">Thumbnail URL</label>
-            <input type="url" name="thumbnail" defaultValue={service.thumbnail} required className="input w-full rounded-full focus:border-0 focus:outline-gray-200" placeholder="https://example.com/image.jpg"/>
+            <input type="url" name="thumbnail" defaultValue={service.thumbnail} required className="input w-full rounded-full focus:border-0 focus:outline-gray-200" placeholder="https://example.com/image.jpg" />
           </div>
 
           {/* Submit Button */}

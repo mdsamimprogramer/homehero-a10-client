@@ -13,7 +13,7 @@ const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const [refetch, setRefetch] = useState(false);
 
-  // Average rating বের করা
+  // Average rating
   const avgRating = service.reviews?.length
     ? Math.min(service.reviews.reduce((a, r) => a + r.rating, 0) / service.reviews.length, 5)
     : 0;
@@ -21,7 +21,7 @@ const ServiceDetails = () => {
   const stars = "★★★★★☆☆☆☆☆".slice(5 - Math.floor(avgRating), 10 - Math.floor(avgRating));
 
   useEffect(() => {
-    fetch(`http://localhost:3000/services/${id}`, {
+    fetch(`https://home-hero-server-sigma.vercel.app/services/${id}`, {
       headers: { authorization: `Bearer ${user?.accessToken}` },
     })
       .then(res => res.json())
@@ -46,7 +46,7 @@ const ServiceDetails = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/services/${service._id}`, {
+        fetch(`https://home-hero-server-sigma.vercel.app/services/${service._id}`, {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
         })
@@ -80,7 +80,7 @@ const ServiceDetails = () => {
           price: service.price,
         };
 
-        fetch(`http://localhost:3000/bookings/${service._id}`, {
+        fetch(`https://home-hero-server-sigma.vercel.app/bookings/${service._id}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(bookingData),

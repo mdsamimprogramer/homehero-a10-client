@@ -1,18 +1,68 @@
-# React + Vite
+#  HomeHero – Local Household Service Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+HomeHero is a modern web application that connects users with trusted local service providers such as electricians, plumbers, and cleaners.  
+Users can browse services, book appointments, and leave ratings, while providers can manage their listings easily.  
 
-Currently, two official plugins are available:
+##  Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+HomeHero helps people find verified local household service providers quickly and safely.  
+The platform ensures transparency, trust, and convenience for both users and service providers.
 
-## React Compiler
+## Key Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+-  **User Authentication:** Register, Login & Google Login  
+-  **Service Management:** Add, Update & Delete services  
+-  **Bookings:** Users can book services and view their bookings  
+-  **Ratings & Reviews:** Users can rate and review services  
+-  **Profile Management:** Update name, photo, and see last login info  
+-  **Customer Testimonials & Why Choose Us** static sections  
+-  **Responsive Design:** Fully mobile-friendly using Tailwind & DaisyUI  
+-  **Secure Authorization:** Private routes & JWT-based authentication  
 
-Note: This will impact Vite dev & build performances.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Frontend:**  
+- React.js  
+- React Router DOM  
+- Tailwind CSS  
+- DaisyUI  
+- React Hot Toast  
+- SweetAlert2  
+
+**Backend:**  
+- Node.js  
+- Express.js  
+- MongoDB  
+- Firebase Authentication  
+- JWT (JSON Web Token)  
+- dotenv & cors  
+
+**Development Tools:**  
+- Vite  
+- Git & GitHub  
+- Vercel / Firebase Hosting  
+
+---
+##  How to Run Locally
+
+###  Clone the Repositories
+```bash
+git clone https://github.com/mdsamimprogramer/homehero-a10-client
+git clone https://github.com/mdsamimprogramer/homehero-a10-server
+
+
+
+
+# {
+#     "name": "House Cleaning",
+#     "category": "Cleaning",
+#     "price": 600,
+#     "description": "Full home cleaning including kitchen, bathroom, and living area.",
+#     "thumbnail": "https://d28ht6kztpdvka.cloudfront.net/media/productimages/87/Space-Suit-3D-Model-Textured-Download-.webp",
+#     "providerName": "Sadia Akter",
+#     "created_by": "sadia@example.com",
+#     "created_at": "2025-11-10T14:00:00Z",
+#     "updated_at": "2025-11-10T14:00:00Z",
+#     "reviews": []
+#   },

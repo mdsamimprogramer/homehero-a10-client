@@ -18,7 +18,7 @@ const MyBookings = () => {
   useEffect(() => {
     if (!user) return;
 
-    fetch(`http://localhost:3000/my-bookings?email=${user.email}`, {
+    fetch(`https://home-hero-server-sigma.vercel.app/my-bookings?email=${user.email}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -46,7 +46,7 @@ const MyBookings = () => {
       confirmButtonText: "Yes, cancel it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/bookings/${bookingId}`, {
+        fetch(`https://home-hero-server-sigma.vercel.app/bookings/${bookingId}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -75,7 +75,7 @@ const MyBookings = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:3000/services/${selectedBooking.serviceId}/reviews`,
+        `https://home-hero-server-sigma.vercel.app/services/${selectedBooking.serviceId}/reviews`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -144,7 +144,7 @@ const MyBookings = () => {
         </table>
       </div>
 
-      {/* ✅ Review Modal */}
+      {/* Review Modal */}
       {selectedBooking && (
         <div className="fixed inset-0 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-xl shadow-lg w-96">

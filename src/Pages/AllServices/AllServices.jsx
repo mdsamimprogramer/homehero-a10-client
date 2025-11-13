@@ -12,7 +12,7 @@ const AllServices = () => {
     const search_text = e.target.search.value;
     setLoading(true);
 
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    fetch(`https://home-hero-server-sigma.vercel.app/search?search=${search_text}`)
       .then(res => res.json())
       .then(data => {
         setServices(data);

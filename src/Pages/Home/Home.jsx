@@ -8,11 +8,11 @@ const Home = () => {
     const [minPrice, setMinPrice] = useState("");
     const [maxPrice, setMaxPrice] = useState("");
 
-  
+
     useEffect(() => {
         const fetchTopRated = async () => {
             try {
-                const res = await fetch("http://localhost:3000/services");
+                const res = await fetch("https://home-hero-server-sigma.vercel.app/services");
                 if (!res.ok) throw new Error("Failed to fetch services");
 
                 const data = await res.json();
@@ -41,7 +41,7 @@ const Home = () => {
     // Price filter handler
     const handleFilter = async () => {
         try {
-            let url = "http://localhost:3000/services";
+            let url = "https://home-hero-server-sigma.vercel.app/services";
 
             if (minPrice || maxPrice) {
                 url += `?minPrice=${minPrice}&maxPrice=${maxPrice}`;
@@ -64,7 +64,7 @@ const Home = () => {
             <div className="flex flex-col md:flex-row justify-center items-center gap-3 mt-10">
                 <div className="space-x-3">
                     <input type="number" placeholder="Min Price" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} className="border border-gray-300 rounded-lg px-3 py-2 w-40" />
-                    <input type="number" placeholder="Max Price" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} className="border border-gray-300 rounded-lg px-3 py-2 w-40"/>
+                    <input type="number" placeholder="Max Price" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} className="border border-gray-300 rounded-lg px-3 py-2 w-40" />
                 </div>
                 <button onClick={handleFilter} className="bg-green-500 hover:bg-cyan-500 text-white px-5 py-2 rounded-lg font-medium transition" > Filter </button>
             </div>

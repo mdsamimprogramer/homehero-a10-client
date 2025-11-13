@@ -20,7 +20,7 @@ const AddService = () => {
       created_by: user?.email,
     };
 
-    fetch("http://localhost:3000/services", {
+    fetch("https://home-hero-server-sigma.vercel.app/services", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

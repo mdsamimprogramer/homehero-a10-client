@@ -9,7 +9,7 @@ const MyServices = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/my-services?email=${user.email}`, {
+        fetch(`https://home-hero-server-sigma.vercel.app/my-services?email=${user.email}`, {
             headers: {
                 authorization: `Bearer ${user.accessToken}`,
             },
@@ -24,13 +24,13 @@ const MyServices = () => {
 
     if (loading) {
         return <div className="items-center text-center my-42">
-            <FourSquare color="#32cd32" size="100%" text="" textColor=""/>
+            <FourSquare color="#32cd32" size="100%" text="" textColor="" />
         </div>
     }
 
     return (
-        <div className="p-4">
-            <h2 className="text-2xl font-bold mb-4 text-gray-700">
+        <div className="">
+            <h2 className="text-2xl text-center my-5 md:my-8 font-bold mb-4 text-gray-700">
                 My Added Services
             </h2>
 

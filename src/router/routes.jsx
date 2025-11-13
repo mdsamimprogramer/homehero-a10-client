@@ -17,17 +17,17 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    errorElement: <ErrorPage />, 
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch('http://localhost:3000/services')
+        loader: () => fetch('https://home-hero-server-sigma.vercel.app/services')
       },
       {
         path: "/all-services",
         element: <AllServices></AllServices>,
-        loader: () => fetch('http://localhost:3000/services')
+        loader: () => fetch('https://home-hero-server-sigma.vercel.app/services')
       },
       {
         path: "/profile",
@@ -79,7 +79,7 @@ export const router = createBrowserRouter([
             <UpdateService></UpdateService>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`)
+        loader: ({ params }) => fetch(`https://home-hero-server-sigma.vercel.app/services/${params.id}`)
       },
       {
         path: "/auth/login",
