@@ -61,7 +61,7 @@ const Home = () => {
             <Banner />
             <WhyChooseUs />
 
-            <div className="flex flex-col md:flex-row justify-center items-center gap-3 mt-5">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-3 mt-10">
                 <div className="space-x-3">
                     <input type="number" placeholder="Min Price" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} className="border border-gray-300 rounded-lg px-3 py-2 w-40" />
                     <input type="number" placeholder="Max Price" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} className="border border-gray-300 rounded-lg px-3 py-2 w-40"/>
@@ -72,7 +72,7 @@ const Home = () => {
             {/* Top 6 Rated Services Section */}
             <div className="text-center text-2xl font-bold mt-10"> Top 6 Rated Services </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-8 mb-10 px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 mb-10">
                 {services.length > 0 ? (
                     services.map((service) => (
                         <ServiceCard key={service._id} service={service} />

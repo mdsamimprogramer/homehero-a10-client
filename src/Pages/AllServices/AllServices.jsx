@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ServiceCard } from "../../components/ServiceCard";
 
 const AllServices = () => {
-  const data = useLoaderData(); // Loader থেকে services আনা হচ্ছে
+  const data = useLoaderData();
   const [services, setServices] = useState(data);
   const [loading, setLoading] = useState(false);
 
@@ -12,7 +12,7 @@ const AllServices = () => {
     const search_text = e.target.search.value;
     setLoading(true);
 
-    fetch(`http://localhost:3000/search?search=${search_text}`) // আপনার local API
+    fetch(`http://localhost:3000/search?search=${search_text}`)
       .then(res => res.json())
       .then(data => {
         setServices(data);
@@ -38,7 +38,7 @@ const AllServices = () => {
         <button className="btn btn-secondary rounded-full">{loading ? "Searching..." : "Search"}</button>
       </form>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {services && services.map((service) => (
           <ServiceCard key={service._id} service={service} />
         ))}

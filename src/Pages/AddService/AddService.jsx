@@ -14,6 +14,7 @@ const AddService = () => {
       price: parseFloat(e.target.price.value),
       description: e.target.description.value,
       thumbnail: e.target.thumbnail.value,
+      providerName: e.target.providerName.value,
       created_at: new Date(),
       boo: 0,
       created_by: user?.email,
@@ -39,19 +40,25 @@ const AddService = () => {
   };
 
   return (
-    <div className="card border border-gray-200 bg-base-100 w-full max-w-md mx-auto shadow-xl rounded-2xl mt-8">
-      <div className="card-body p-6">
+    <div className="card border border-gray-200 bg-base-100 w-full max-w-lg mx-auto shadow-xl rounded-2xl mt-8">
+      <div className="card-body p-4">
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
           Add New Service
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Name */}
-          <div>
-            <label className="label font-semibold text-gray-700">Service Name</label>
-            <input type="text" name="name" required className="input input-bordered w-full rounded-full focus:border-pink-500" placeholder="Enter service name" />
-          </div>
 
+          {/* name and provider */}
+          <div className="flex gap-4 items-center">
+            <div>
+              <label className="label font-semibold text-gray-700">Service Name</label>
+              <input type="text" name="name" required className="input input-bordered w-full rounded-full focus:border-pink-500" placeholder="Enter service name" />
+            </div>
+            <div>
+              <label className="label font-semibold text-gray-700">Provider Name</label>
+              <input type="text" name="providerName" required className="input input-bordered w-full rounded-full focus:border-pink-500" placeholder="Enter service name" />
+            </div>
+          </div>
           {/* Category */}
           <div>
             <label className="label font-semibold text-gray-700">Category</label>
