@@ -1,13 +1,13 @@
 import { Link } from 'react-router';
-import { Facebook, Twitter, Instagram, Mail, X, HousePlus } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Mail, X, HousePlus, Linkedin, Github } from 'lucide-react';
 import { LuRotate3D } from 'react-icons/lu';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-r from-gray-600 to-gray-500 py-8 px-4 rounded-xl mt-20">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+    <footer className="bg-gradient-to-r from-gray-700 to-gray-600 pt-8 pb-2.5 px-5 lg:px-0 rounded-t-2xl mt-20">
+      <div className="container mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
         {/* Logo & Navigation */}
         <div>
@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
           <ul className="space-y-2 mt-4">
             <li><Link to="/all-services" className="text-gray-600 dark:text-gray-200 hover:text-blue-600">All Services</Link></li>
-            <li><Link to="/add-service" className="text-gray-600 dark:text-gray-200 hover:text-blue-600">Add Service</Link></li>
+            <li><Link to="/contact" className="text-gray-600 dark:text-gray-200 hover:text-blue-600">Contact Us</Link></li>
             <li><Link to="/profile" className="text-gray-600 dark:text-gray-200 hover:text-blue-600">Profile</Link></li>
             <li><Link to="/auth/login" className="text-gray-600 dark:text-gray-200 hover:text-blue-600">Login</Link></li>
           </ul>
@@ -49,11 +49,14 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-bold mb-4 text-gray-800 dark:text-gray-200">Connect With Us</h3>
           <div className="flex space-x-4 mb-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-200 hover:text-blue-700">
+            <a href="https://www.facebook.com/md.samim.khan.22906" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-200 hover:text-blue-700">
               <Facebook size={24} />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-200 hover:text-blue-400">
-              <X size={24} />
+            <a href="https://www.linkedin.com/in/samim01/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-200 hover:text-blue-400">
+              <Linkedin size={24} />
+            </a>
+            <a href="https://github.com/mdsamimprogramer" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-200 hover:text-blue-400">
+              <Github size={24} />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-200 hover:text-pink-600">
               <Instagram size={24} />
@@ -70,8 +73,8 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="border-t lg:mb-0 md:mb-0 mb-20 border-[#fa7171] mt-8 pt-4 text-center">
-        <p className="text-sm text-gray-600 dark:text-gray-200">
+      <div className="border-t border-[#fa7171] mt-8 pt-4 text-center">
+        <p className="text-sm text-gray-300">
           © {currentYear} HomeHero. All Rights Reserved.
           <span className="ml-4">
             <Link to="/" className="hover:text-blue-600 mr-3">Privacy Policy</Link>

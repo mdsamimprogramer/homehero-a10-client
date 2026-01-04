@@ -1,10 +1,8 @@
 import { Link, NavLink } from "react-router";
-import { IoLogoModelS } from "react-icons/io";
+import { IoIosContact, IoLogoModelS } from "react-icons/io";
 import { GoHomeFill } from "react-icons/go";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { FaUser } from "react-icons/fa6";
-import { LuRotate3D } from "react-icons/lu";
-import { ImBoxAdd } from "react-icons/im";
 import { use, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { HousePlus } from "lucide-react";
@@ -24,7 +22,7 @@ const NavBar = () => {
   }
 
   return (
-    <div className="navbar py-1 min-h-0 bg-gray-50 z-1 shadow-sm rounded glass-card max-w-7xl">
+    <div className="navbar py-1 min-h-0 bg-gray-50 sticky top-0 z-50 shadow-sm rounded glass-card max-w-7xl mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -35,6 +33,7 @@ const NavBar = () => {
           <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow" >
             <li> <NavLink to={"/"}> <GoHomeFill /> Home</NavLink> </li>
             <li> <NavLink to={"/all-services"}> <IoLogoModelS /> All Services</NavLink> </li>
+            <li> <NavLink to={"/contact"}> <IoIosContact /> Contact</NavLink> </li>
           </ul>
         </div>
         <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
@@ -43,9 +42,10 @@ const NavBar = () => {
       </div>
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1 gap-10">
-          <li> <NavLink to={"/"}> <GoHomeFill />Home </NavLink> </li>
-          <li> <NavLink to={"/all-services"}> <IoLogoModelS /> All Services </NavLink> </li>
-          <li> <NavLink to={"/add-service"}> <ImBoxAdd /> Add service </NavLink></li>
+          <li> <NavLink to={"/"}> <GoHomeFill size={18} />Home </NavLink> </li>
+          <li> <NavLink to={"/all-services"}> <IoLogoModelS size={18} /> All Services </NavLink> </li>
+          <li> <NavLink to={"/contact"}> <IoIosContact size={18} /> Contact</NavLink> </li>
+          {/* <li> <NavLink to={"/add-service"}> <ImBoxAdd /> Add service </NavLink></li> */}
         </ul>
       </div>
       <div className="navbar-end gap-3">
@@ -59,17 +59,13 @@ const NavBar = () => {
                   src={user.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
               </div>
             </div>
-            <ul tabIndex="-1" className="menu  menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
+            <ul tabIndex="-1" className="menu dropdown dropdown-end menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-10 w-52 p-2 shadow">
               <div className=" pb-3 border-b border-b-gray-200">
                 <li className="font-bold">{user.displayName}</li>
                 <li className="text-xs text-fuchsia-400">{user.email}</li>
               </div>
-              <li className="mt-3">
-                <Link to={"/profile"}> <FaUser /> Profile </Link>
-              </li>
-              <li> <Link to={"/my-services"}> My Services </Link> </li>
-              <li> <Link to={"/my-bookings"}> My Bookings</Link> </li>
-
+              <li className="mt-3"><Link to={"/profile"}> <FaUser /> Profile </Link></li>
+              <li> <Link to={"/dashboard"}> Dashboard</Link> </li>
               <input
                 onChange={(e) => handleTheme(e.target.checked)}
                 type="checkbox"

@@ -29,12 +29,12 @@ const MyServices = () => {
     }
 
     return (
-        <div className="">
+        <div className="container mx-auto px-5 md:px-8 lg:px-14">
             <h2 className="text-2xl text-center my-5 md:my-8 font-bold mb-4 text-gray-700">
                 My Added Services
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 {services.length > 0 ? (
                     services.map((service) => (
                         <ServiceCard key={service._id} service={service} />

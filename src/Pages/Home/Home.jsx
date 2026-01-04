@@ -72,7 +72,7 @@ const Home = () => {
             {/* Top 6 Rated Services Section */}
             <div className="text-center text-2xl font-bold mt-10"> Top 6 Rated Services </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-8 mb-10">
                 {services.length > 0 ? (
                     services.map((service) => (
                         <ServiceCard key={service._id} service={service} />

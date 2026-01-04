@@ -19,7 +19,7 @@ export const ServiceCard = ({ service }) => {
 
   return (
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-      <figure className="h-48 overflow-hidden">
+      <figure className="h-46 overflow-hidden">
         <img src={thumbnail} alt={name} className="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
       </figure>
 
@@ -40,7 +40,7 @@ export const ServiceCard = ({ service }) => {
         </div>
         <div className="text-xs text-gray-600">{created_by}</div>
         <p className="line-clamp-1 text-gray-700 mt-1">{description}</p>
-        <div className="card-actions mt-4">
+        <div className="card-actions mt-2">
           <Link to={`/service-details/${_id}`} className="btn btn-sm w-full rounded-full bg-gradient-to-r from-pink-500 to-red-600 hover:from-red-600 hover:to-pink-500 text-white" >
             Details
           </Link>

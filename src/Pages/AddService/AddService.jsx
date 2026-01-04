@@ -66,9 +66,7 @@ const AddService = () => {
           <div>
             <label className="label font-semibold text-gray-700">Category</label>
             <select defaultValue="" name="category" required className="select select-bordered w-full rounded-full focus:border-pink-500" >
-              <option value="" disabled>
-                Select category
-              </option>
+              <option value="" disabled>Select category</option>
               <option value="Electrical">Electrical</option>
               <option value="Plumbing">Plumbing</option>
               <option value="Cleaning">Cleaning</option>

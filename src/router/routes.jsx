@@ -5,13 +5,16 @@ import Profile from "../Pages/Profile/Profile";
 import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Registration";
 import PrivateRoute from "./PrivateRoute";
-import AddService from "../Pages/AddService/AddService";
 import AllServices from "../Pages/AllServices/AllServices";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
-import MyServices from "../Pages/MyServices/MyServices";
 import UpdateService from "../Pages/UpdateService/UpdateService";
-import MyBookings from "../Pages/MyBookings/MyBookings";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import DashboardLayout from "../layout/DashboardLayout";
+import MyServices from "../Pages/MyServices/MyServices";
+import MyBookings from "../Pages/MyBookings/MyBookings";
+import AddService from "../Pages/AddService/AddService";
+import DashboardHome from "../Pages/DashboardHome/DashboardHome";
+import Contact from "../Pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -30,55 +33,26 @@ export const router = createBrowserRouter([
         loader: () => fetch('https://home-hero-server-sigma.vercel.app/services')
       },
       {
-        path: "/profile",
-        element: (
-          <PrivateRoute>
-            <Profile />
-          </PrivateRoute>
-        ),
+        path: "/contact",
+        element: <Contact />
       },
+
       {
-        path: "/add-service",
-        element: (
-          <PrivateRoute>
-            <AddService></AddService>
-          </PrivateRoute>
-        ),
+        path: "/profile",
+        element: <PrivateRoute><Profile /></PrivateRoute>
       },
+      // {
+      //   path: "/add-service",
+      //   element: <PrivateRoute><AddService></AddService></PrivateRoute>
+      // },
       {
         path: "/service-details/:id",
-        element: (
-          <PrivateRoute>
-            <ServiceDetails></ServiceDetails>
-          </PrivateRoute>
-        ),
-      },
-
-      {
-        path: "/my-services",
-        element: (
-          <PrivateRoute>
-            <MyServices></MyServices>
-          </PrivateRoute>
-        ),
-      },
-
-      {
-        path: "/my-bookings",
-        element: (
-          <PrivateRoute>
-            <MyBookings></MyBookings>
-          </PrivateRoute>
-        ),
+        element: <PrivateRoute> <ServiceDetails></ServiceDetails></PrivateRoute>
       },
 
       {
         path: "/update-service/:id",
-        element: (
-          <PrivateRoute>
-            <UpdateService></UpdateService>
-          </PrivateRoute>
-        ),
+        element: <PrivateRoute> <UpdateService></UpdateService></PrivateRoute>,
         loader: ({ params }) => fetch(`https://home-hero-server-sigma.vercel.app/services/${params.id}`)
       },
       {
@@ -90,5 +64,27 @@ export const router = createBrowserRouter([
         element: <Register />,
       },
     ],
+  },
+  {
+    path: 'dashboard',
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        path: 'dashboard-home',
+        element: <DashboardHome></DashboardHome>
+      },
+      {
+        path: 'add-service',
+        element: <AddService></AddService>
+      },
+      {
+        path: 'my-services',
+        element: <MyServices></MyServices>
+      },
+      {
+        path: 'my-bookings',
+        element: <MyBookings></MyBookings>
+      },
+    ]
   },
 ]);

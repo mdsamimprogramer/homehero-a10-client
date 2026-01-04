@@ -11,9 +11,8 @@ const MainLayout = () => {
         <div className="mt-4 mx-5 lg:mx-0">
           <Outlet />
         </div>
-        <Footer />
       </div>
-
+      <Footer />
       <Toaster />
     </div>
   );
